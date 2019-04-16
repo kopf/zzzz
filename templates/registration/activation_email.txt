@@ -1,0 +1,15 @@
+{% load i18n %}
+{% url 'registration_activate' activation_key as activation_key_url%}
+{% blocktrans with siteurl=site.domain %}
+Hey,
+
+Thanks for signing up for an account at zzzz.io!
+
+To activate your account, please click the following link within the next {{ expiration_days }} days:
+
+http://zzzz.io{{ activation_key_url }}
+
+If you didn't sign up for an account at zzzz.io, just ignore this email.
+
+Hope you enjoy the service!
+{% endblocktrans %}

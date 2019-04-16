@@ -1,0 +1,540 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
+<!-- saved from url=(0013)about:internet -->
+	<head>
+		<title>
+					InnerFade with jquery
+		</title>
+		<!-- //
+		
+		____________________________________________
+		
+		Gestaltung und XHTML-Programmierung
+		
+		+49 341 2 27 96 99
+		www.medienfreunde.com
+		____________________________________________
+		
+		-->
+		
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta http-equiv="imagetoolbar" content="no" />
+
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/jquery.innerfade.js"></script>
+		<script type="text/javascript">
+	   $(document).ready(
+				function(){
+					$('#news').innerfade({
+						animationtype: 'slide',
+						speed: 750,
+						timeout: 2000,
+						type: 'random',
+						containerheight: '1em'
+					});
+					
+					$('ul#portfolio').innerfade({
+						speed: 1000,
+						timeout: 5000,
+						type: 'sequence',
+						containerheight: '220px'
+					});
+					
+					$('.fade').innerfade({
+						speed: 1000,
+						timeout: 6000,
+						type: 'random_start',
+						containerheight: '1.5em'
+					});
+					
+					$('.adi').innerfade({
+						speed: 'slow',
+						timeout: 5000,
+						type: 'random',
+						containerheight: '150px'
+					});
+
+			});
+  	</script>
+
+		<link rel="stylesheet" href="css/reset.css"  type="text/css" media="all" />
+		<link rel="stylesheet" href="css/fonts.css"  type="text/css" media="all" />
+		<style type="text/css" media="screen, projection">
+					@import url(css/jq_fade.css);
+		</style>		
+	</head>
+	<body>				
+			<div class="limiter">
+			
+			<div class="adi">
+				<div style="text-align: center; width: 100%;">
+					<script type="text/javascript"><!--
+					google_ad_client = "pub-8042276531249348";
+					google_ad_width = 468;
+					google_ad_height = 60;
+					google_ad_format = "468x60_as_rimg";
+					google_cpa_choice = "CAAQ8aaVzgEaCPJg3qtkyXM9KOm293M";
+					google_ad_channel = "4394743034";
+					//--></script>
+					<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+					</script>
+				</div>
+				<div style="text-align: center; width: 100%;">
+					<script type="text/javascript"><!--
+					google_ad_client = "pub-8042276531249348";
+					google_ad_width = 728;
+					google_ad_height = 90;
+					google_ad_format = "728x90_as";
+					google_ad_type = "text";
+					//2007-02-05: it
+					google_ad_channel = "0484589010";
+					google_color_border = "cccccc";
+					google_color_bg = "fffeb8";
+					google_color_link = "0088ce";
+					google_color_text = "0088ce";
+					google_color_url = "cccccc";
+					//--></script>
+					<script type="text/javascript"
+					  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+					</script>
+				</div>
+			</div>
+			
+				<h1>
+					InnerFade with JQuery
+				</h1>
+				
+				<h2>What is it?</h2>
+				<p>InnerFade is a small plugin for the <a href="http://jquery.com" title="Visit jQuery and learn more about this awesome JavaScript-Library">jQuery-JavaScript-Library</a>. It's designed to fade you any element inside a container in and out.</p>
+				<p>These elements could be anything you want, e.g. images, list-items, divs. Simply produce your own slideshow for your portfolio or advertisings. Create a newsticker or do an animation.</p>
+					
+				<h2>The call</h2>
+				
+				<code>
+$(&#39;<strong>ID or class of the element containing the fading objects</strong>&#39;).innerfade({
+	animationtype: <strong>Type of animation &#39;fade&#39; or &#39;slide&#39; (Default: &#39;fade&#39;)</strong>,
+	speed: <strong>Fadingspeed in milliseconds or keywords (slow, normal or fast)(Default: &#39;normal&#39;)</strong>,
+	timeout: <strong>Time between the fades in milliseconds (Default: &#39;2000&#39;)</strong>,
+	type: <strong>Type of slideshow: &#39;sequence&#39;, &#39;random&#39; or &#39;random_start&#39; (Default: &#39;sequence&#39;)</strong>,
+	containerheight: <strong>Height of the containing element in any css-height-value (Default: &#39;auto&#39;)</strong>
+	runningclass: <strong>CSS-Class which the container get’s applied (Default: &#39;innerfade&#39;)</strong>
+});
+				</code>	
+				
+				<code>
+&lt;script type=&quot;text/javascript&quot;&gt;
+	$(document).ready(
+		function(){
+			$('#news').innerfade({
+				animationtype: 'slide',
+				speed: 750,
+				timeout: 2000,
+				type: 'random',
+				containerheight: '1em'
+			});
+
+			$('#portfolio').innerfade({
+				speed: 'slow',
+				timeout: 4000,
+				type: 'sequence',
+				containerheight: '220px'
+			});
+			
+			$('.fade').innerfade({
+				speed: 'slow',
+				timeout: 1000,
+				type: 'sequence',
+				containerheight: '1.5em'
+			});
+		}
+	);
+&lt;/script&gt;
+				</code>	
+					
+					
+				<h2>Examples</h2>					
+				<h3>A newsticker (with animationtype: 'slide')</h3>		
+				<ul id="news">					
+					<li>
+						<a href="#n1">1 Lorem ipsum dolor</a>
+					</li>
+					<li>
+						<a href="#n2">2 Sit amet, consectetuer</a>
+					</li>					
+					<li>
+						<a href="#n3">3 Sdipiscing elit,</a>
+					</li>					
+					<li>
+						<a href="#n4">4 sed diam nonummy nibh euismod tincidunt ut</a>
+					</li>
+					<li>
+						<a href="#n5">5 Nec Lorem.</a>
+					</li>
+					<li>
+						<a href="#n6">6 Et eget.</a>
+					</li>					
+					<li>
+						<a href="#n7">7 Leo orci pede.</a>
+					</li>					
+					<li>
+						<a href="#n8">8 Ratio randorus wil.</a>
+					</li>				
+				</ul>
+				
+				<code>
+&lt;ul id=&quot;news&quot;&gt;
+	&lt;li&gt;
+		&lt;a href=&quot;#n1&quot;&gt;1 Lorem ipsum dolor&lt;/a&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+		&lt;a href=&quot;#n2&quot;&gt;2 Sit amet, consectetuer&lt;/a&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+		&lt;a href=&quot;#n3&quot;&gt;3 Sdipiscing elit,&lt;/a&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+		&lt;a href=&quot;#n4&quot;&gt;4 sed diam nonummy nibh euismod tincidunt ut&lt;/a&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+		&lt;a href=&quot;#n5&quot;&gt;5 Nec Lorem.&lt;/a&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+		&lt;a href=&quot;#n6&quot;&gt;6 Et eget.&lt;/a&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+		&lt;a href=&quot;#n7&quot;&gt;7 Leo orci pede.&lt;/a&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+		&lt;a href=&quot;#n8&quot;&gt;8 Ratio randorus wil.&lt;/a&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;
+				</code>
+				
+				<h3>A list with images and links</h3>
+				<ul id="portfolio">					
+					<li>
+						<a href="http://medienfreunde.com/deutsch/referenzen/kreation/good_guy__bad_guy.html"><img src="images/ggbg.gif" alt="Good Guy bad Guy" /></a>
+					</li>
+					<li>
+						<a href="http://medienfreunde.com/deutsch/referenzen/kreation/whizzkids.html"><img src="images/whizzkids.gif" alt="Whizzkids" /></a>
+					</li>					
+					<li>
+						<a href="http://medienfreunde.com/deutsch/referenzen/printdesign/koenigin_mutter.html"><img src="images/km.jpg" alt="Königin Mutter" /></a>
+					</li>					
+					<li>
+						<a href="http://medienfreunde.com/deutsch/referenzen/webdesign/rt_reprotechnik_-_hybride_archivierung.html"><img src="images/rt_arch.jpg" alt="RT Hybride Archivierung" /></a>
+					</li>		
+					<li>
+						<a href="http://medienfreunde.com/deutsch/referenzen/kommunikation/tuev_sued_gruppe.html"><img src="images/tuev.jpg" alt="TÜV SÜD Gruppe" /></a>
+					</li>				
+				</ul>
+				
+				<code>
+&lt;ul id=&quot;portfolio&quot;&gt; 
+	&lt;li&gt;
+		&lt;a href=&quot;http://medienfreunde.com/deutsch/referenzen/kreation/good_guy__bad_guy.html&quot;&gt;
+			&lt;img src=&quot;images/ggbg.gif&quot; alt=&quot;Good Guy bad Guy&quot; /&gt;
+		&lt;/a&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+		&lt;a href=&quot;http://medienfreunde.com/deutsch/referenzen/kreation/whizzkids.html&quot;&gt;
+			&lt;img src=&quot;images/whizzkids.gif&quot; alt=&quot;Whizzkids&quot; /&gt;
+		&lt;/a&gt;
+	&lt;/li&gt; 
+	&lt;li&gt;
+		&lt;a href=&quot;http://medienfreunde.com/deutsch/referenzen/printdesign/koenigin_mutter.html&quot;&gt;
+			&lt;img src=&quot;images/km.jpg&quot; alt=&quot;K&ouml;nigin Mutter&quot; /&gt;
+		&lt;/a&gt;
+	&lt;/li&gt; 
+	&lt;li&gt;
+		&lt;a href=&quot;http://medienfreunde.com/deutsch/referenzen/webdesign/rt_reprotechnik_-_hybride_archivierung.html&quot;&gt;
+			&lt;img src=&quot;images/rt_arch.jpg&quot; alt=&quot;RT Hybride Archivierung&quot; /&gt;
+		&lt;/a&gt;
+	&lt;/li&gt; 
+	&lt;li&gt;
+		&lt;a href=&quot;http://medienfreunde.com/deutsch/referenzen/kommunikation/tuev_sued_gruppe.html&quot;&gt;
+			&lt;img src=&quot;images/tuev.jpg&quot; alt=&quot;T&Uuml;V S&Uuml;D Gruppe&quot; /&gt;
+		&lt;/a&gt;
+	&lt;/li&gt; 
+&lt;/ul&gt;	
+				</code>
+				
+				<h3>Elements with classes</h3>
+				<div class="fade">					
+					<p>
+						1
+					</p>
+					<p>
+						2
+					</p>
+					<p>
+						3
+					</p>
+					<p>
+						4
+					</p>
+					<p>
+						5
+					</p>
+					<p>
+						6
+					</p>
+					<p>
+						7
+					</p>
+					<p>
+						8
+					</p>
+					<p>
+						9
+					</p>
+					<p>
+						10
+					</p>		
+				</div>
+				
+				<div class="fade">					
+					<p>
+						A
+					</p>
+					<p>
+						B
+					</p>
+					<p>
+						C
+					</p>
+					<p>
+						D
+					</p>
+					<p>
+						E
+					</p>
+					<p>
+						F
+					</p>
+					<p>
+						G
+					</p>
+					<p>
+						H
+					</p>
+					<p>
+						I
+					</p>
+					<p>
+						J
+					</p>
+					<p>
+						K
+					</p>
+					<p>
+						L
+					</p>
+					<p>
+						M
+					</p>
+					<p>
+						N
+					</p>
+					<p>
+						O
+					</p>
+					<p>
+						P
+					</p>
+					<p>
+						Q
+					</p>
+					<p>
+						R
+					</p>
+					<p>
+						S
+					</p>
+					<p>
+						T
+					</p>
+					<p>
+						U
+					</p>
+					<p>
+						V
+					</p>
+					<p>
+						W
+					</p>
+					<p>
+						X
+					</p>
+					<p>
+						Y
+					</p>
+					<p>
+						Z
+					</p>		
+				</div>
+				
+				<code>
+&lt;div class=&quot;fade&quot;&gt; 
+	&lt;p&gt;
+		1
+	&lt;/p&gt;
+	&lt;p&gt;
+		2
+	&lt;/p&gt;
+	&lt;p&gt;
+		3
+	&lt;/p&gt;
+	&lt;p&gt;
+		4
+	&lt;/p&gt;
+	&lt;p&gt;
+		5
+	&lt;/p&gt;
+	&lt;p&gt;
+		6
+	&lt;/p&gt;
+	&lt;p&gt;
+		7
+	&lt;/p&gt;
+	&lt;p&gt;
+		8
+	&lt;/p&gt;
+	&lt;p&gt;
+		9
+	&lt;/p&gt;
+	&lt;p&gt;
+		10
+	&lt;/p&gt; 
+&lt;/div&gt;
+
+&lt;div class=&quot;fade&quot;&gt; 
+	&lt;p&gt;
+		A
+	&lt;/p&gt;
+	&lt;p&gt;
+		B
+	&lt;/p&gt;
+	&lt;p&gt;
+		C
+	&lt;/p&gt;
+	&lt;p&gt;
+		D
+	&lt;/p&gt;
+	&lt;p&gt;
+		E
+	&lt;/p&gt;
+	&lt;p&gt;
+		F
+	&lt;/p&gt;
+	&lt;p&gt;
+		G
+	&lt;/p&gt;
+	&lt;p&gt;
+		H
+	&lt;/p&gt;
+	&lt;p&gt;
+		I
+	&lt;/p&gt;
+	&lt;p&gt;
+		J
+	&lt;/p&gt;
+	&lt;p&gt;
+		K
+	&lt;/p&gt;
+	&lt;p&gt;
+		L
+	&lt;/p&gt;
+	&lt;p&gt;
+		M
+	&lt;/p&gt;
+	&lt;p&gt;
+		N
+	&lt;/p&gt;
+	&lt;p&gt;
+		O
+	&lt;/p&gt;
+	&lt;p&gt;
+		P
+	&lt;/p&gt;
+	&lt;p&gt;
+		Q
+	&lt;/p&gt;
+	&lt;p&gt;
+		R
+	&lt;/p&gt;
+	&lt;p&gt;
+		S
+	&lt;/p&gt;
+	&lt;p&gt;
+		T
+	&lt;/p&gt;
+	&lt;p&gt;
+		U
+	&lt;/p&gt;
+	&lt;p&gt;
+		V
+	&lt;/p&gt;
+	&lt;p&gt;
+		W
+	&lt;/p&gt;
+	&lt;p&gt;
+		X
+	&lt;/p&gt;
+	&lt;p&gt;
+		Y
+	&lt;/p&gt;
+	&lt;p&gt;
+		Z
+	&lt;/p&gt; 
+&lt;/div&gt;
+				</code>
+				
+				<h2>Download</h2>
+				<p><a href="http://medienfreunde.com/stats/getfile.php?id=3" ><strong>jquery.innerfade.zip</strong> (124kb)</a></p>
+				
+				<p><a href="http://medienfreunde.com/deutsch/weblog/aus_der_praxis.html?nid=162">Back to the article</a><br /><br /><br /><br /></p>
+
+<div class="adi">
+	<div style="text-align: center; width: 100%;">
+	<script type="text/javascript"><!--
+	google_ad_client = "pub-8042276531249348";
+	google_ad_width = 728;
+	google_ad_height = 90;
+	google_ad_format = "728x90_as";
+	google_ad_type = "text";
+	//2007-02-05: it
+	google_ad_channel = "0484589010";
+	google_color_border = "cccccc";
+	google_color_bg = "fffeb8";
+	google_color_link = "0088ce";
+	google_color_text = "0088ce";
+	google_color_url = "cccccc";
+	//--></script>
+	<script type="text/javascript"
+	  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+	</script>
+	</div>
+	<div style="text-align: center; width: 100%;">
+	<script type="text/javascript"><!--
+	google_ad_client = "pub-8042276531249348";
+	google_ad_width = 468;
+	google_ad_height = 60;
+	google_ad_format = "468x60_as_rimg";
+	google_cpa_choice = "CAAQ8aaVzgEaCPJg3qtkyXM9KOm293M";
+	google_ad_channel = "4394743034";
+	//--></script>
+	<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+	</script>
+	</div>
+</div>
+				
+			</div>
+		
+		<noscript>
+	    <div id="att">
+	    	<p>Sorry, you need to activate JavaScript in your browser.</p>
+	    </div>
+    </noscript>					
+	</body>
+</html>

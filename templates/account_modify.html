@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block title %}Modify Account{% endblock %}
+
+{% block main_content %}
+    <p>Below, you can inspect what data zzzz has collected about you. </p>
+    <p>You can also <a href="{% url 'frontend.views.export_account_json' %}">export this data as JSON.</a></p>
+    <p>If you want to change your username or email address, send me an email at ventolin@gmail.com, with instructions on what data you want modified.</p>
+
+    <table class="table table-hover">
+        <tbody>
+        <tr>
+            <th>Username</th>
+            <td>
+                {{ user.username }}
+            </td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td>
+                {{ user.email }}
+            </td>
+        </tr>
+        <tr>
+            <th>Token</th>
+            <td>{{ user.token }}</td>
+        </tr>
+        <tr>
+            <th>Subdomains</th>
+            <td>
+                {% for subdomain in subdomains %}
+                    <p>Name: {{ subdomain.name }}, IP: {{subdomain.ip}}, IPv6: {{subdomain.ipv6}}, Updated: {{subdomain.updated}}</p>
+                {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <th>User class</th>
+            <td>
+                {{ user.user_class }}
+                {% if user.user_class > 0 %}
+                    (Thank you for donating!)
+                {% else %}
+                    (<a href="{% url 'frontend.views.donate' %}">Not yet donated</a>)
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <th>Date Joined</th>
+            <td>{{ user.date_joined }}</td>
+        </tr>
+        <tr>
+            <th>Last Login</th>
+            <td>{{ user.last_login }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+<h2>Delete Account</h2>
+<p>We're sorry to see you go! If you want to <b>irreversibly delete your account and all associated subdomains</b>, simply enter your username in the text field below and click the button.</p>
+<p>If there are ways in which zzzz didn't live up to your expectations, don't hesitate to get in touch (ventolin@gmail.com).</p>
+
+<form name="delete_account" action="{% url 'frontend.views.delete_account' %}" class="form-horizontal" method="post">
+  {% csrf_token %}
+  <div class="form-group">
+    <div class="col-xs-2">
+      <input type="text" class="form-control" id="username_verification" name="username_verification" placeholder="Username">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-xs-4">
+      <button type="submit" class="btn btn-danger">Delete my account</button>
+    </div>
+  </div>
+</form>
+
+{% endblock %}

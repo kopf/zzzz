@@ -1,0 +1,9 @@
+boto
+Django
+django-registration-redux
+django-suit
+requests
+raven
+django-ses
+mysqlclient
+django-recaptcha

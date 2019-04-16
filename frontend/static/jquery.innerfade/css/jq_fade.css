@@ -1,0 +1,173 @@
+html {
+	min-height: 100.05%;
+}
+
+body { 
+	text-align: center;
+	color: #333;
+	
+	background: #fff;
+}
+
+p {
+	margin-bottom: 0.5em;
+	line-height: 1.5;
+}
+
+strong {
+	font-weight: bold;
+}
+
+blockquote {
+	margin: 2em;
+	padding: .3em 0 0 2em;
+	background: url(../img/quote.png) 0 0 no-repeat;
+}
+
+	blockquote p{
+		color: #888;
+		font-size: 129%;
+		font-style: italic;
+		line-height: 1.2;
+	}
+
+	blockquote p.author {
+		color: #aaa;
+		font-size: 85%;
+		font-weight: bold;
+	}
+
+
+h1, h2, h3, h4 {
+	color: #0088cc;
+	font-weight: normal;
+	letter-spacing: 0.03125em;
+}
+h1 {
+	font-size: 152%;
+	margin-bottom:1em;
+}
+h2 {
+	font-size: 129%;
+	margin-top: 2em;
+	margin-bottom: .5em;
+	line-height: 1.6em;
+}
+
+h3 {
+	font-size: 107%;
+	line-height: 1.2;
+	font-weight: bold;
+	color: #0088cc;
+	margin: 1em 0 0.5em 0;
+}
+
+h4 {
+	font-size: 100%;
+	font-weight: bold;
+	color: #333;
+	margin: 1em 0 0.5em 0;
+}
+
+	div.sub h4,
+	div.sub {
+		color: #fff;
+	}
+
+
+
+
+
+
+a:link {
+	color: #0060c3;
+	text-decoration: none;
+}
+
+a:visited {
+	color: #3a7ec3;
+	text-decoration: none;
+}
+
+a:hover,
+a:active {
+	color: #007eff;
+	text-decoration: none;
+}
+
+img {
+	border: none;
+}
+
+code {
+	display: block;
+	padding: 10px;
+	font-size: 85%;
+	border: 1px solid #ccc;
+	background:  #f2f2f2;
+	margin-bottom: 5em;
+	white-space: pre;
+	overflow: auto;
+}
+
+/* Breite beschränken */
+div.limiter {
+	text-align: left;
+	width: 80%;
+	max-width: 69.23em;
+	padding: 1.2em 1.5em;
+	
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+ul {
+	margin-bottom: 2em;
+}
+
+
+/* Listen */
+ul#news {
+	border: 1px solid #ccc;
+	padding: 2em;
+	background:  #fffeb8;
+}
+
+ul#portfolio li img{
+	border: 1px solid #ccc;
+	padding: 4px;
+}
+
+
+.fade{
+	margin-bottom: 2em;
+}
+
+.fade p{
+	margin-bottom: 2em;
+	text-align: center;
+	width: 100%;
+	background: #fff;
+}
+
+
+/**** noscript-Hinweis ****/
+
+div#att {
+	background-color: #fffeb8;
+	border-bottom: 1px solid;
+	height: 2.5em;
+	line-height: 2.5em;
+	position: absolute;
+	top:0;
+	width: 100%;
+}
+
+div#att p{
+	background: transparent url(../images/att.png) no-repeat 0 46%;
+	margin: 0;
+	display: inline;
+	padding: 6px 0 6px 26px;
+}
+	

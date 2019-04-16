@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block container %}
+  <div class="jumbotron">
+    <div id="example_subdomains">
+      <h1>
+        mybox.zzzz.io
+      </h1>
+      <h1>
+        dave.zzzz.io
+      </h1>
+      <h1>
+        home.zzzz.io
+      </h1>
+      <h1>
+        james.zzzz.io
+      </h1>
+    </div>
+    <p>Free, short and memorable dynamic DNS addresses.</p>
+    <p>
+      {% if user.is_authenticated %}
+        <a class="btn btn-lg btn-primary" href="{% url 'frontend.views.account' %}" role="button">Manage Subdomains &raquo;</a>
+      {% else %}
+        <a class="btn btn-lg btn-primary" href="{% url 'registration_register' %}" role="button">Get Yours Now &raquo;</a>
+      {% endif %}
+    </p>
+  </div>
+
+  {% url 'frontend.views.faq' as faq_url %}
+  {% url 'registration_register' as register_url %}
+  <div class="row">
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <div class="caption">
+          <h3>What is it?</h3>
+          <p>With a zzzz.io subdomain, you have an easy-to-remember address which you can point to any computer online, without paying domain registration fees.</p>
+          <p>
+            {% if not user.is_authenticated %}
+              <a href="{{register_url}}" class="btn btn-primary" role="button">Sign up now</a>
+            {% endif %}
+            <a href="{{faq_url}}" class="btn btn-default" role="button">Learn More</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <div class="caption">
+          <h3>Perfect for home servers</h3>
+          <p>Have a media server at home? Create a zzzz.io subdomain and point it to your home IP address and enjoy constant access to your data on the go. You can even host a website under the subdomain.</p>
+          <p>
+            {% if not user.is_authenticated %}
+              <a href="{{register_url}}" class="btn btn-primary" role="button">Sign up now</a>
+            {% endif %}
+            <a href="{{faq_url}}" class="btn btn-default" role="button">Learn More</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <div class="caption">
+          <h3>Copes with Dynamic DNS</h3>
+          <p>Some ISPs re-assign IP addresses upon each connection. With a zzzz.io subdomain, you can easily set up your modem or computer to update its associated IP upon each change.</p>
+          <p>
+            {% if not user.is_authenticated %}
+              <a href="{{register_url}}" class="btn btn-primary" role="button">Sign up now</a>
+            {% endif %}
+            <a href="{{faq_url}}" class="btn btn-default" role="button">Learn More</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block extra_js %}
+  <script src="{% static "jquery.innerfade/js/jquery.innerfade.js" %}"></script>
+  <script type="text/javascript">
+    $(document).ready(
+      function(){
+        $('#example_subdomains').innerfade({
+          speed: 1000,
+          timeout: 3000,
+          type: 'random_start',
+          containerheight: '1em'
+        });
+      }
+    );
+  </script>
+{% endblock %}
+

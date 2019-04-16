@@ -1,0 +1,28 @@
+#domain_name_text {
+    margin-left:-25px;
+    margin-top:8px;
+}
+
+.delete_subdomain {
+    text-align: center;
+}
+
+.delete_subdomain a {
+    color: red;
+}
+
+#example_subdomains {
+    min-height: 4.2em;
+}
+
+footer {
+    border-top: #bbb 1px solid;
+    margin-top: 3em;
+    text-align: right;
+    color: #bbb;
+}
+
+.set_ipv4 {
+    /* FIXME horrible hack */
+    padding-left:35px;
+}

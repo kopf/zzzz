@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% block title %}My Account{% endblock %}
+
+{% block main_content %}
+  <p>Below you can see your configured subdomains and create new subdomains.</p>
+  <p>The update URL is a URL which must be requested in order to update the IP address associated with the subdomain. For more information, please <a href="{% url 'frontend.views.faq' %}">see the FAQ</a>.</p>
+  <h2>My Subdomains</h2>
+  {% if subdomains %}
+    <table class="table table-hover">
+      <tr>
+        <th>Subdomain</th>
+        <th>IPv4</th>
+        <th>IPv6</th>
+        <th>Update URL</th>
+        <th>Last updated</th>
+        <th class="delete_subdomain">Delete</th>
+      </tr>
+      {% for subdomain in subdomains %}
+        <tr>
+          <td>{{subdomain.name}}</td>
+          <td>{% if subdomain.ip %}{{subdomain.ip}}{% else %}&mdash;{% endif %}</td>
+          <td>{% if subdomain.ipv6 %}{{subdomain.ipv6}}{% else %}&mdash;{% endif %}</td>
+          <td>
+            <a href="https://zzzz.io{% url 'api.v1.update' subdomain=subdomain.name %}?token={{user.token}}" onclick="javascript:alert_user_click();return false;">
+              https://zzzz.io{% url 'api.v1.update' subdomain=subdomain.name %}?token={{user.token}}
+            </a>
+          </td>
+          <td>
+            {% if subdomain.updated %}{{subdomain.updated}}{% else %}&mdash;{% endif %}
+          </td>
+          <td class="delete_subdomain">
+            <a href="{% url 'api.v1.delete' subdomain=subdomain.name %}">
+              <span class="glyphicon glyphicon-remove"></span>
+            </a>
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+    You haven't created any subdomains yet.
+  {% endif %}
+
+  <h2>Create New Subdomain</h2>
+  {% if allowed_subdomains == None or subdomains|length < allowed_subdomains %}
+    {% if allowed_subdomains %}
+      <p>
+        You may create a total of {{allowed_subdomains}} subdomain{% if allowed_subdomains > 1 %}s{% endif %}.
+        Need more? Please <a href="{% url 'frontend.views.donate' %}">consider donating</a>.
+      </p>
+    {% endif %}
+    <form name="create_subdomain" action="{% url 'api.v1.create' %}" class="form-horizontal" method="post">
+      {% csrf_token %}
+      <div class="form-group">
+        <div class="col-xs-2">
+          <input type="text" class="form-control" id="subdomain" name="subdomain" placeholder="Subdomain">
+        </div>
+        <div class="col-xs-1" id="domain_name_text">
+          .zzzz.io
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="checkbox set_ipv4">
+          <label>
+            <input type="checkbox" name="set_ipv4" checked> Automatically set IPv4 address to your current IP address
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-xs-4">
+          <button type="submit" class="btn btn-success">Create</button>
+        </div>
+      </div>
+    </form>
+  {% else %}
+    <p>
+      You have used up all of your subdomains.
+      Need more? Please <a href="{% url 'frontend.views.donate' %}">consider donating</a>.
+    </p>
+  {% endif %}
+
+  <h2>Reset Access Token</h2>
+  <p>If your token has been compromised, you can reset it by clicking the button below. All of your update URLs will change, so please remember to change them where necessary once the reset is complete.</p>
+  <form name="reset_token" action="{% url 'api.v1.reset_token' %}" class="form-horizontal" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+      <div class="col-xs-4">
+        <button type="submit" class="btn btn-danger">Reset Token</button>
+      </div>
+    </div>
+  </form>
+
+
+  <h2>Modify / Delete Account</h2>
+  <p><a href="{% url 'frontend.views.modify_account' %}">Click here</a> to modify your account details or delete your account.</p>
+{% endblock %}
+
+{% block extra_js %}
+  <script language="javascript">
+      function alert_user_click() {
+          alert("Clicking disabled, as this could lead to you inadvertently changing the subdomain's IP. Instead, right-click and copy the URL. For help on how to use this URL, see the FAQ.");
+      }
+  </script>
+{% endblock %}

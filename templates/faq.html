@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}Frequently Asked Questions{% endblock %}
+
+{% block main_content %}
+  <h2>What is zzzz?</h2>
+
+  <p>zzzz is a free dynamic DNS service. DNS is the system by which domain names (e.g. "google.com") are mapped to IP addresses (e.g. 109.193.192.20). This system exists as domain names are far easier to remember than individual IP addresses.</p>
+
+  <p>It can be handy to have a domain name pointing to your home PC, so you can stream music or videos from home, or login to your computer on the go and grab some files you need on the go. There is unfortunately one problem here: many ISPs assign IP addresses dynamically. This means that if your modem reconnects, you'll be assigned a new IP address, your domain name will be left pointing at an out-of-date address, and you won't be able to call home.</p>
+
+  <p>zzzz solves this problem by providing a free service whereby you can create a subdomain (e.g. <i>peter</i>.zzzz.io) and easily configure your computer or modem to update the IP address assigned to this subdomain whenever it changes.</p>
+
+  <h2>How do I use zzzz?</h2>
+
+  <p>Once you've <a href="{% url 'registration_register' %}">signed up for an account</a>, you'll be able to create a new subdomain from your account page.</p>
+
+  <p>Each subdomain has a unique update URL. To update the address that the subdomain points to, a request must be made to this URL from the IP address you want to associate it with. You can do this using <a href="http://curl.haxx.se/" target="_new">cURL</a>, for example:
+    <pre>curl "https://zzzz.io{% url 'api.v1.update' subdomain='my_great_subdomain' %}?token=xxxxxxxx-XXXX-1010-0101-XXXXXXXXXXXX"</pre>
+  </p>
+
+  <p>(Note: you can also use the full domain, "/my_great_subdomain.zzzz.io/" instead of just "/my_great_subdomain/" in the URL.)</p>
+
+  <p>This command needs to be run every time your IP address changes. If your modem or router doesn't support running custom commands upon connection, you can always schedule the command to run periodically on <a href="http://windows.microsoft.com/en-au/windows/schedule-task" target="_new">Windows</a>, <a href="http://stackoverflow.com/a/133425/221001" target="_new">OS X</a> or <a href="http://en.wikipedia.org/wiki/Cron" target="_new">Linux</a>.
+
+  <p>A feature of the update URL is that you authenticate using an access token provided by zzzz. This means you don't have to store your zzzz password somewhere in plaintext in order to update your subdomain's IP. If your access token is ever compromised, you can always reset it from <a href="{% url 'frontend.views.account' %}">your account page</a>.</p>
+
+  <h2>Can I explicitly specify what IP my subdomain points to?</h2>
+
+  <p>Yes. Simply add <pre>&ip=xxx.xxx.xxx.xxx</pre> to the end of your update URL, replacing the x's with the IP address you want your subdomain to point to.</p>
+
+  <h2>Does zzzz have IPv6 support?</h2>
+
+  <p>Yes. You'll need to add <pre>&type=aaaa</pre> to the update URL, and also specify the IPv6 address explicitly in the URL by adding, for example, <pre>&ip=FE80::0202:B3FF:FE1E:8329</pre>
+
+  <h2>Are there any restrictions?</h2>
+
+  <p>For the majority of users, no. However, if you use your zzzz.io account for the purposes of spamming, malware distribution, or other malicious activity, you can expect to have your account and subdomains removed. I reserve the right to exercise my own judgement in such matters.</p>
+
+  <h2>I tried signing up and my email address was rejected. What's going on?</h2>
+
+  <p>Unfortunately, I've had to blacklist disposable email services and Google Mail addresses containing the plus symbol as these were being used by spammers to set up multiple domains for malicious purposes. I regret having been forced to do this, as I personally like to sign up to websites using either of these options, so I'm either not affected by my information being sold on to third parties, or I know which service has sold my personal details.</p>
+
+  <p>All I can offer is my guarantee that I won't spam you, nor will I pass your email address on to any third parties.</p>
+
+  <h2>I found objectionable or copyrighted material hosted on a zzzz.io subdomain. What should I do?</h2>
+
+  <p>I have absolutely no control over anything hosted on any zzzz.io subdomain and cannot be held responsible for it. All zzzz.io offers is a service to point a subdomain at a particular IP address. The owner of the IP address in question is responsible for any material it hosts and is the person who should be contacted in such cases.</p>
+
+  <h2>Why did you make zzzz?</h2>
+
+  <p>DynDNS was a very popular dynamic DNS provider in the 90s. In early 2014, they ended their free plan, so one weekend I decided to create this application to provide a free service to others who still need it.</p>
+
+  <h2>Will zzzz always be free?</h2>
+
+  <p>Yes. It does cost money to keep this service running, however. If you use zzzz and feel it's made your life a little easier, <a href="{% url 'frontend.views.donate' %}">please consider donating</a>.</p>
+
+  <h2>Who are you?</h2>
+
+  <p>I'm Aengus Walton, a web developer from Ireland, currently living in Germany. You can <a href="http://blog.ventolin.org/" target="_new">read my blog here</a> and contact me at ventolin at gmail dot com.</p>
+{% endblock %}

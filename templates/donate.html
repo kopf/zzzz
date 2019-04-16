@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}Make a donation{% endblock %}
+
+{% block main_content %}
+  <h2>Thank you!</h2>
+  <p>Thanks for considering making a donation. zzzz costs money to run, and every little helps to ensure that I don't make too great a loss providing the service for free.</p>
+
+  <p>There are five user classes available:</p>
+  <ul>
+    <li>1 subdomain allowed</li>
+    <li>5 subdomains allowed</li>
+    <li>10 subdomains allowed</li>
+    <li>15 subdomains allowed</li>
+    <li>20 subdomains allowed</li>
+  </ul>
+
+  <p>Please donate as much as you feel the service is worth to you. Donations of 10 euro or less will bump you up one level. Donations of more than 10 euro will bump you up more than one class. All donations, no matter how big or small, are personally processed and are greatly appreciated. All money donated goes directly towards keeping the service running.</p>
+
+  <h2>Donate via PayPal</h2>
+  <p>You can donate using PayPal, with an array of payment options:</p>
+  <a href="http://paypal.me/aengus">
+    <img src="https://www.paypalobjects.com/en_US/DE/i/btn/btn_donateCC_LG.gif" border="0" alt="Donate with PayPal - The safer, easier way to pay online!">
+  </a>
+
+  <h2>Donate via Bitcoin</h2>
+
+  <div id="coinwidget" data-icon="true" data-type="primary" data-wallet="143iVTVuy7bVk31h9DnwztNeeNBQ5wLMqN" />
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/ivandiazwm/coinwidget@0.1.1/builds/full.js" charset="utf-8"></script>
+
+  <h2>Donate via Flattr</h2>
+  <p>Flattr is a micropayment platform that allows you to reward content creators:</p>
+  <script id='fbiqmud'>(function(i){var f,s=document.getElementById(i);f=document.createElement('iframe');f.src='//api.flattr.com/button/view/?uid=ventolin&url='+encodeURIComponent(document.URL);f.title='Flattr';f.height=62;f.width=55;f.style.borderWidth=0;s.parentNode.insertBefore(f,s);})('fbiqmud');</script>
+
+  <h2>Donate via Gratipay</h2>
+  <p>Gratipay (formerly Gittip) allows you to donate a small, recurring amount:</p>
+  <script data-gittip-username="kopf" data-gittip-widget="button" src="//gttp.co/v1.js"></script>
+{% endblock %}
